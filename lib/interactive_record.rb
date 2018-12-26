@@ -52,16 +52,8 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-  def self.find_by(option={})
-    attribute = ""
-    value = ""
-    self.column_names.each do |col_name|
-      if option[col_name]
-        attribute = col_name
-        value = option[col_name]
-      end
-    end
-    sql = "select * from #{self.table_name} where #{send('#{attribute}')} = '#{value}';"
+  def self.find_by(hash)
+    sql = "SELECT * FROM #{self.table_name} WHERE #{hash.keys[0].to_s} = '#{hash.values[0].to_s}'"
     DB[:conn].execute(sql)
   end
 

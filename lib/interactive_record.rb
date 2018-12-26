@@ -60,6 +60,7 @@ class InteractiveRecord
         attribute = col_name
         value = option[col_name]
         sql = "select * from #{self.table_name} where #{attribute} = '#{value}'"
+        return DB[:conn].execute(sql)
       end
     end
   end

@@ -52,7 +52,16 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-  def self.find_by(options={})
+  def self.find_by(option={})
+    attribute = ""
+    values = ""
+    self.column_names.each do |col_name|
+      if option[col_name]
+        attribute = col_name
+        value = option[col_name]
+        sql = "select * from #{self.table_name} where #{attribute} = '#{value}'"
+      end
+    end
   end
 
 end

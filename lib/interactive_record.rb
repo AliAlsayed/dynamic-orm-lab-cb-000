@@ -61,7 +61,7 @@ class InteractiveRecord
         value = option[col_name]
       end
     end
-    sql = "select * from #{self.table_name} where #{send(attribute)} = #{value};"
+    sql = "select * from #{self.table_name} where #{send(attribute)} = '#{value}';"
     DB[:conn].execute(sql)
   end
 

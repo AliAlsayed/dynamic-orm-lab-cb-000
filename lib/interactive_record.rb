@@ -37,4 +37,9 @@ class InteractiveRecord
     "'#{self.name}', '#{self.grade}'"
   end
 
+  def save
+    sql = "insert into students values (?, ?);"
+    DB[:conn].execute(sql, self.name, self.grade)
+  end
+
 end

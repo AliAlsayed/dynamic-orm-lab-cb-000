@@ -38,8 +38,8 @@ class InteractiveRecord
   end
 
   def save
-    sql = "insert into students values (?, ?);"
-    DB[:conn].execute(sql, self.name, self.grade)
+    sql = "insert into students values (#{col_names_for_insert}) values (#{values_for_insert});"
+    DB[:conn].execute(sql)
     @id = DB[:conn].execute("select last_insert_rowid() from students;")
   end
 

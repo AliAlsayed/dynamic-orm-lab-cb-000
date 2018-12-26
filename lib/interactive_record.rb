@@ -59,10 +59,10 @@ class InteractiveRecord
       if option[col_name]
         attribute = col_name
         value = option[col_name]
-        sql = "select * from #{self.table_name} where #{attribute} = '#{value}'"
-        return DB[:conn].execute(sql)
       end
     end
+    sql = "select * from #{self.table_name} where #{attribute} = '#{value}'"
+    return DB[:conn].execute(sql)
   end
 
 end

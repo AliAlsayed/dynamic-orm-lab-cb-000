@@ -34,7 +34,7 @@ class InteractiveRecord
   end
 
   def values_for_insert
-    "'#{self.name}', '#{self.age}'"
+    "'#{self.name}', '#{self.grade}'"
   end
 
 end

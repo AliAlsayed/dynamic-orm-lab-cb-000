@@ -54,7 +54,7 @@ class InteractiveRecord
 
   def self.find_by(option={})
     attribute = ""
-    values = ""
+    value = ""
     self.column_names.each do |col_name|
       if option[col_name]
         attribute = col_name
@@ -62,7 +62,7 @@ class InteractiveRecord
       end
     end
     sql = "select * from #{self.table_name} where #{attribute} = '#{value}'"
-    return DB[:conn].execute(sql)
+    DB[:conn].execute(sql)
   end
 
 end

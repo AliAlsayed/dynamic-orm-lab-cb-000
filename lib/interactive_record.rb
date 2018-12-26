@@ -48,7 +48,7 @@ class InteractiveRecord
   end
 
   def self.find_by_name(name)
-    sql = "select * from students for name = ?;"
+    sql = "select * from students where name = ?;"
     DB[:conn].execute(sql, name)[0]
   end
 
